@@ -1,0 +1,23 @@
+schema-version: 1.0
+
+description: |
+  Le paquet Bc contient un langage de traitement des nombres à la précision de votre choix.
+  Programmes installés: bc et dc
+
+  bc: Une calculatrice en ligne de commandes
+  dc: Une calculatrice en ligne de commande en polonais inversé (reverse-polish)
+
+builder:
+  origin: ./bc-builder
+  var:
+    version: "{% version %}"
+
+
+var:
+  version: 5.0.0
+
+
+provision:
+  - copy:
+      builder: bc
+      todir: /usr

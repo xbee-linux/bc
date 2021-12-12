@@ -1,0 +1,28 @@
+schema-version: 1.0
+
+type: builder
+
+
+const:
+  srcDir: /usr/src
+  exportDir: /opt/bc
+
+
+var:
+  version: 5.0.0
+
+provision:
+  - url:
+      from: https://github.com/gavinhoward/bc/releases/download/{% version %}/bc-{% version %}.tar.xz
+      todir: "{% srcDir %}"
+
+build:
+  - shell:
+      cmds:
+        - CC=gcc ./configure --prefix={% exportDir %} -G -O3
+        - make
+        - make test
+        - make install
+      directory: "{% srcDir %}/bc-{% version %}"
+  - export: "{% exportDir %}"
+
