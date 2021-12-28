@@ -20,4 +20,4 @@ var:
 provision:
   - copy:
       builder: bc
-      todir: /usr
+      todir: /

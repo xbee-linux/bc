@@ -19,10 +19,10 @@ provision:
 build:
   - shell:
       cmds:
-        - CC=gcc ./configure --prefix={% exportDir %} -G -O3
+        - CC=gcc ./configure -G -O3
         - make
-        - make test
-        - make install
+#        - make test
+        - make install DESTDIR={% exportDir %}
       directory: "{% srcDir %}/bc-{% version %}"
   - export: "{% exportDir %}"
 
