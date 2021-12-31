@@ -8,9 +8,6 @@ const:
   exportDir: /opt/bc
 
 
-var:
-  version: 5.0.0
-
 provision:
   - url:
       from: https://github.com/gavinhoward/bc/releases/download/{% version %}/bc-{% version %}.tar.xz

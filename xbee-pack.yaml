@@ -7,11 +7,7 @@ description: |
   bc: Une calculatrice en ligne de commandes
   dc: Une calculatrice en ligne de commande en polonais inversé (reverse-polish)
 
-builder:
-  origin: ./bc-builder
-  var:
-    version: "{% version %}"
-
+builder: ./bc-builder
 
 var:
   version: 5.0.0
