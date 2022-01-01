@@ -16,7 +16,7 @@ provision:
 build:
   - shell:
       cmds:
-        - CC=gcc ./configure -G -O3
+        - CC=gcc ./configure --prefix=/usr -G -O3
         - make
 #        - make test
         - make install DESTDIR={% exportDir %}
