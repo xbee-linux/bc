@@ -1,5 +1,7 @@
 schema-version: 1.0
 
+type: builder
+
 description: |
   Le paquet Bc contient un langage de traitement des nombres à la précision de votre choix.
   Programmes installés: bc et dc
@@ -7,13 +9,21 @@ description: |
   bc: Une calculatrice en ligne de commandes
   dc: Une calculatrice en ligne de commande en polonais inversé (reverse-polish)
 
-builder: ./bc-builder
-
-var:
+in:
   version: 5.0.0
 
-
 provision:
-  - copy:
-      builder: bc
-      todir: /
+  - url:
+      from: https://github.com/gavinhoward/bc/releases/download/{% version %}/bc-{% version %}.tar.xz
+      todir: "{% xbeeSrc %}"
+
+build:
+  - shell:
+      cmds:
+        - CC=gcc ./configure --prefix=/usr -G -O3
+        - make
+#        - make test
+        - make install DESTDIR={% bc %}
+      directory: "{% xbeeSrc %}/bc-{% version %}"
+
+
