@@ -1,6 +1,0 @@
-{
-    "ubuntu:20.04": {
-        "repo": "https://github.com/xbeerepository/ubuntu.git",
-        "commit": "0beb11b1ec7530f5d0fcd1d0d9996ca1c23f9f00"
-    }
-}

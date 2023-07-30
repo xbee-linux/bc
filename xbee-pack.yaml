@@ -9,13 +9,13 @@ description: |
   bc: Une calculatrice en ligne de commandes
   dc: Une calculatrice en ligne de commande en polonais inversé (reverse-polish)
 
-in:
+var:
   version: 5.0.0
 
 provision:
   - url:
-      from: https://github.com/gavinhoward/bc/releases/download/{% version %}/bc-{% version %}.tar.xz
-      todir: "{% xbeeSrc %}"
+      from: https://github.com/gavinhoward/bc/releases/download/{{ .version }}/bc-{{ .version }}.tar.xz
+      todir: "{{ .xbeeSrc }}"
 
 build:
   - shell:
@@ -23,7 +23,7 @@ build:
         - CC=gcc ./configure --prefix=/usr -G -O3
         - make
 #        - make test
-        - make install DESTDIR={% xbeeOut %}
-      directory: "{% xbeeSrc %}/bc-{% version %}"
+        - make install DESTDIR={{ .xbeeOut }}
+      directory: "{{ .xbeeSrc }}/bc-{{ .version }}"
 
 
