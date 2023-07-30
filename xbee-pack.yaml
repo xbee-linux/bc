@@ -15,7 +15,7 @@ var:
 provision:
   - url:
       from: https://github.com/gavinhoward/bc/releases/download/{{ .version }}/bc-{{ .version }}.tar.xz
-      todir: "{{ .xbeeSrc }}"
+      todir: "{{ .xbee.src }}"
 
 build:
   - shell:
@@ -23,7 +23,7 @@ build:
         - CC=gcc ./configure --prefix=/usr -G -O3
         - make
 #        - make test
-        - make install DESTDIR={{ .xbeeOut }}
-      directory: "{{ .xbeeSrc }}/bc-{{ .version }}"
+        - make install DESTDIR={{ .xbee.out }}
+      directory: "{{ .xbee.src }}/bc-{{ .version }}"
 
 
