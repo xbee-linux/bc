@@ -13,9 +13,8 @@ var:
   version: 5.0.0
 
 provision:
-  - url:
-      from: https://github.com/gavinhoward/bc/releases/download/{{ .version }}/bc-{{ .version }}.tar.xz
-      todir: "{{ .xbee.src }}"
+  url: https://github.com/gavinhoward/bc/releases/download/{{ .version }}/bc-{{ .version }}.tar.xz
+
 
 build:
   - shell:
