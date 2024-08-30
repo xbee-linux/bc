@@ -10,10 +10,11 @@ description: |
   dc: Une calculatrice en ligne de commande en polonais inversé (reverse-polish)
 
 var:
-  version: 5.0.0
+  xbee:
+    version: 5.0.0
 
 provision:
-  url: https://github.com/gavinhoward/bc/releases/download/{{ .version }}/bc-{{ .version }}.tar.xz
+  url: https://github.com/gavinhoward/bc/releases/download/{{ .xbee.version }}/bc-{{ .xbee.version }}.tar.xz
 
 
 build:
@@ -23,6 +24,6 @@ build:
         - make
 #        - make test
         - make install DESTDIR={{ .xbee.out }}
-      directory: "{{ .xbee.src }}/bc-{{ .version }}"
+      directory: "{{ .xbee.src }}/bc-{{ .xbee.version }}"
 
 
