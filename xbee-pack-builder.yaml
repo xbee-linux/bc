@@ -1,7 +1,5 @@
 schema-version: 1.0
 
-type: builder
-
 description: |
   Le paquet Bc contient un langage de traitement des nombres à la précision de votre choix.
   Programmes installés: bc et dc
