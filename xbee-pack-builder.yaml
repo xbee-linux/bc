@@ -17,11 +17,9 @@ provision:
 
 build:
   - shell:
-      cmds:
+      cmd:
         - CC=gcc ./configure --prefix=/usr -G -O3
         - make
 #        - make test
         - make install DESTDIR={{ .xbee.out }}
       directory: "{{ .xbee.src }}/bc-{{ .xbee.version }}"
-
-
